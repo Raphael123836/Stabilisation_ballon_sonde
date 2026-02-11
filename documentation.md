@@ -34,15 +34,11 @@ iFi.begin(ssid, pass);
   ```
 - Envoie du paquet
 ```Cpp
-  String frame = "";
-  frame += String(10 * sin(0.15 * adc4)) + ",";
-  frame += String(10 * sin(0.4 * adc5)) + "\n"; // Le \n est crucial pour finir la ligne
-  ```
-```Cpp
   Udp.beginPacket(pcIp, port);
   Udp.print(frame);
   Udp.endPacket();
   ```
+
 ### Côté Serial Studio
 Étape pour configurer la connection UDP
 - Dans l'onglet configuration de l'appareil (à droite)
