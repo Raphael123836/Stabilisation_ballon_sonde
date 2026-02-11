@@ -180,5 +180,7 @@ void loop() {
     - Port local : 9000
     - Port distant : 7777
     - adresse distante : 192.168.137.3 // adresse ipv4 de l'arduino
-    - 
-### Côté SPacket sender 
+
+      
+### Côté Packet sender 
+Mettre l'ip de l'Arduino et le port 7777. 
