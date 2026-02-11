@@ -5,7 +5,7 @@
   
 ### Côté Arduino 
 - Mettre le code suivant au début du programme :
-```
+```Cpp
 #include <WiFiS3.h>
 #include <WiFiUdp.h>
 
@@ -16,4 +16,13 @@ const int port = 8888;
 
 WiFiUDP Udp;
   ```
-- Dans 
+- Dans la section setup mettre le code suivant
+```
+iFi.begin(ssid, pass);
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+  Udp.begin(port);
+  Serial.println("\nPrêt ! Envoi UDP en cours...");
+  ```
