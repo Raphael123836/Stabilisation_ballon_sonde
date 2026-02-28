@@ -182,6 +182,59 @@ void loop() {
     - adresse distante : 192.168.137.3 // adresse ipv4 de l'arduino
 
       
-## Envoyer des packet avec packets sender (solution B pour envoyer des packets)
+# Envoyer des packet avec packets sender (solution B pour envoyer des packets)
+  Librairies essentiel : 
+  ```Cpp
+  #include <WiFiS3.h>
+  #include <WiFiUdp.h>
+  ```
+  Connection au hotspot de l'ordinateur : 
+  ```Cpp 
+  const char* ssid = "RAPHAEL_6598";
+  const char* pass = "18c235=X";
+  const int port_ecoute = 7777;
+  ```
+  Initialisation d'un tableau de char pour récupérer la donnée ```char packetBuffer[255]; ```
+  
+  Setup : 
+  ```Cpp
+  void setup() {
+    Serial.begin(115200);
+    WiFi.begin(ssid, pass);
+    while (WiFi.status() != WL_CONNECTED) {
+      delay(500);
+      Serial.print(".");
+    }
+    Udp.begin(port_ecoute);
+    Serial.println("\nPrêt !");
+    delay(1000);
+    Serial.println(WiFi.localIP());
+  }
+  ```
+
+loop :
+ ``` cpp
+void loop() {
+
+  int packetSize = Udp.parsePacket();
+  
+  if (packetSize) {
+
+    int len = Udp.read(packetBuffer, 255);
+
+    if (len > 0) {
+
+      packetBuffer[len] = 0;
+
+    }
+
+    Serial.println("Speed:");
+    Serial.print(packetBuffer);
+    
+    speed = atoi(packetBuffer);
+    Serial.println(speed);
+  }
+ ```
+
 
 
