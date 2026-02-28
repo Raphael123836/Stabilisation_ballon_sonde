@@ -52,7 +52,7 @@ wiFi.begin(ssid, pass);
 
 
 
-## Réception et transmission : 
+## Réception et transmission (pas encore fonctionel avec uniquement serial studio): 
 ### Côté Ordinateur
 - Activer le partage de connection sur l'ordinateur
 - Copier l'addresse ipv4 de l'ordinateur avec la commande ```ipconfig``` voir la section "Carte réseau sans fil Connexion au réseau local* 2" 
@@ -182,5 +182,6 @@ void loop() {
     - adresse distante : 192.168.137.3 // adresse ipv4 de l'arduino
 
       
-### Côté Packet sender 
-Mettre l'ip de l'Arduino et le port 7777. 
+## Envoyer des packet avec packets sender (solution B pour envoyer des packets)
+
+
